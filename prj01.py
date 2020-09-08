@@ -36,31 +36,40 @@ def Q5(A, b):
 def Q6():
     a = nn.Input("a")
     b = nn.Input("b")
-    c = a + b
-    return c
+    d = a + b
+    return d
 
 # Return an EasyNN expression for a+b*c.
 def Q7():
     a = nn.Input("a")
     b = nn.Input("b")
     c = nn.Input("c")
-    d = a + b*c
-    return d
+    e = a + b*c
+    return e
 
 # Given A and b, return an EasyNN expression for Ax+b.
 def Q8(A, b):
-    a = nn.Input("A")
-    b = nn.Input("x")
-    c = nn.Input("b")
-    d = a * b + c
+    A = nn.Const(A)
+    x = nn.Input("x")
+    b = nn.Const(b)
+    d = A*x + b
     return d
+
 
 # Given n, return an EasyNN expression for x**n.
 def Q9(n):
-    
-    return None
+    a =1
+    x = nn.Input("x")
+    for _ in range(n):
+        a=x*a
+    return a
+
 
 # Return an EasyNN expression to compute
 # the element-wise absolute value |x|.
 def Q10():
-    return None
+    a = nn.ReLU()
+    x = nn.Input("x")
+    b = a(x)
+    c = a(-x)
+    return b+c

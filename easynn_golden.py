@@ -81,7 +81,7 @@ def Mul(expr, op, args, **kwargs):
 def Flatten(expr, op, args, **kwargs):
     x = args[0]
     if not hasattr(x, "shape"):
-        raise Exception("%s: ndarray only: %s" % (expr, imgs))
+        raise Exception("%s: ndarray only: %s" % (expr,imgs))
     return x.reshape((x.shape[0], -1))
 
 
