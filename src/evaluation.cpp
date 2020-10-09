@@ -6,7 +6,7 @@
 using namespace std;
 
 evaluation::evaluation(const std::vector<expression> &exprs)
-    : result_(0),exprs_(exprs)
+    : exprs_(exprs),result_(0)
 {
 }
 
