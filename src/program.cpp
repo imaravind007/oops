@@ -22,7 +22,7 @@ int program::add_op_param_double(const char *key,double value)
 
 int program::add_op_param_ndarray(const char *key,int dim,size_t shape[],double data[])
 {
-    return -1;
+   return -1;
 }
 
 evaluation *program::build()

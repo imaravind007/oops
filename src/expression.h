@@ -1,9 +1,11 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 using namespace std;
+#include "tensor.h"
 #include<vector>
 #include<string>
 #include<map>
+
 class evaluation;
 
 class expression
@@ -15,7 +17,8 @@ private:
     string op_name_;
     string op_type_ ;
     vector<int> inputs_;
-    map<string,double>op_param;
+    map<string, double>op_param;
+    map<string, tensor>op_param_tensor;
 public:
     int get_id(); 
     string get_op_name();

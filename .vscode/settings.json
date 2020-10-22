@@ -44,5 +44,6 @@
         "stdexcept": "cpp",
         "random": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }

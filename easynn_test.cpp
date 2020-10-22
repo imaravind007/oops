@@ -16,7 +16,7 @@ int main()
     append_expression(prog, 1, "", "Add", inputs1, 2);
 
     int inputs2[] = {0,1,0};
-    append_expression(prog,1,"","Sub",inputs2,3);
+    append_expression(prog,1, "", "Sub", inputs2, 3);
 
     evaluation *eval = build(prog);
     add_kwargs_double(eval, "a", 5);
