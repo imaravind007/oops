@@ -26,7 +26,7 @@ public:
     string get_op_type() const;
     map<string, double> get_op_params() const;
     tensor get_op_param(const char *key) const;
-   // int get_inputs();
+    vector<int> get_inputs()const;
     
 
     expression(int expr_id, const char *op_name, const char *op_type, int *inputs, int num_inputs);

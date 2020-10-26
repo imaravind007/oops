@@ -11,8 +11,7 @@ eval_op::eval_op(const expression &exp)
     expr_id_ = exp.get_id();
     op_name_ = exp.get_op_name();
     op_params = exp.get_op_params();
-    // inputs_ = exp.get_op_type();
-    // op_params_tensor = expr.get_op_param("value")const;
+    inputs_ = exp.get_inputs();
 
 
 }

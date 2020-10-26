@@ -23,6 +23,10 @@ std::string expression::get_op_name() const
 {
     return op_params;
 }
+std::vector<int> expression::get_inputs()const
+{
+    return inputs_;
+}
 
 tensor expression::get_op_param(const char *key) const
 {
