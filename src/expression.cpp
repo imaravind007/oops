@@ -1,40 +1,49 @@
 #include "expression.h"
-#include "tensor.h"
-#include <string>
-#include <vector>
-using namespace std;
 
-expression::expression(int expr_id,const char *op_name,const char *op_type,int *inputs,int num_inputs):expr_id_(expr_id),
-op_name_(op_name),op_type_(op_type),inputs_(inputs,inputs+num_inputs),op_param()
-
+expression::expression(int expr_id, const char *op_name, const char *op_type, int *inputs, int num_inputs):expr_id_(expr_id), op_name_(op_name),op_type_(op_type), inputs_(inputs, inputs+num_inputs),op_params(), op_params_tensor()
 {
 }
 
-void expression::add_op_param_double(const char *key,double value)
-{
-    op_param[key] = value; 
-}
-
-void expression::add_op_param_ndarray(const char *key,int dim,size_t shape[],double data[])
-{
-    tensor *tval = new tensor(dim,shape,data);
-    op_param_tensor[key] = *tval;
-
-}
-
-int expression::get_id()
+int expression::get_id() const
 {
     return expr_id_;
 }
-string expression ::get_op_name()
+
+std::string expression::get_op_name() const
 {
     return op_name_;
 }
-string expression::get_op_type()
-{
+
+ std::string expression::get_op_type() const
+ {
     return op_type_;
 }
-map<string,double> expression::get_op_param()
+
+ std::map<std::string, double> expression::get_op_params() const
 {
-    return op_param;
+    return op_params;
+}
+
+tensor expression::get_op_param(const char *key) const
+{
+    auto it = op_params_tensor.find(key);
+    return it->second;
+}
+
+void expression::add_op_param_double(
+    const char *key,
+    double value)
+{
+    op_params[key] = value;
+}
+
+void expression::add_op_param_ndarray(
+    const char *key,
+    int dim,
+    size_t shape[],
+    double data[])
+{
+    tensor *tval = new tensor(dim, shape, data);
+    op_params_tensor[key] = *tval;
+    // op_params_tensor[key] = tensor(dim,shape,data);
 }
