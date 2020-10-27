@@ -34,20 +34,16 @@ tensor expression::get_op_param(const char *key) const
     return it->second;
 }
 
-void expression::add_op_param_double(
-    const char *key,
-    double value)
+void expression::add_op_param_double(const char *key, double value)
 {
     op_params[key] = value;
 }
 
-void expression::add_op_param_ndarray(
-    const char *key,
-    int dim,
-    size_t shape[],
-    double data[])
+void expression::add_op_param_ndarray(const char *key, int dim, size_t shape[],double data[])
 {
+    // Method:1(Implementing Using pointer)
     tensor *tval = new tensor(dim, shape, data);
     op_params_tensor[key] = *tval;
+    // Method:2(Implementing using the Map)
     // op_params_tensor[key] = tensor(dim,shape,data);
 }

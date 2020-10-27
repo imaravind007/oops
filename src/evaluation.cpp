@@ -36,8 +36,10 @@ void evaluation::add_kwargs_double(const char *key, double value)
 
 void evaluation::add_kwargs_ndarray(const char *key, int dim, size_t shape[], double data[])
 {
+    // Method:1 Using pointer
     tensor *tval = new tensor(dim, shape, data);
     kwargs_tensor[key] = *tval;
+    // Method:2 Using Map
     // kwargs_tensor[key] = tensor(dim,shape,data);
 }
 

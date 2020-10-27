@@ -1,8 +1,7 @@
 #include "tensor.h"
 #include "evaluation.h"
 
-tensor::tensor():
-data_(1, 0)
+tensor::tensor():data_(1, 0)
 {
 }
 
