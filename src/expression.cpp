@@ -4,25 +4,29 @@ expression::expression(int expr_id, const char *op_name, const char *op_type, in
 {
 }
 
+
+// #Getter function for expr_id_
 int expression::get_id() const
 {
     return expr_id_;
 }
 
+// Getter function for op_name_
 std::string expression::get_op_name() const
 {
     return op_name_;
 }
-
- std::string expression::get_op_type() const
+// Getter function for op_type
+std::string expression::get_op_type() const
  {
     return op_type_;
 }
-
+// Getter function for op_params
  std::map<std::string, double> expression::get_op_params() const
 {
     return op_params;
 }
+// Getter function for inputs_
 std::vector<int> expression::get_inputs()const
 {
     return inputs_;

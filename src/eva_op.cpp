@@ -83,6 +83,8 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
 {
     tensor input_1 = variables.at(inputs_[0]);
     tensor input_2 = variables.at(inputs_[1]);
+    vector<double>result;
+    // the condition to prevent the seg fault
     if (input_1.get_dim()== 0) 
     {
         variables[expr_id_] = input_2;
@@ -93,19 +95,28 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
         variables[expr_id_] = input_1;
         return variables[expr_id_];
     }
-    vector<double>result;
+
+    // if(input_1.get_dim()==0)
+    // {
+    //     double input_1 = tensor.item();
+    //     for 
+        
+    // }
+    // if(input_2.get_dim()==0){
+
+    // }
 
     // #initializing the result of matrix result = 0
-    for(int i=0; i < input_1.get_shape_array()[0]; ++i)
-        for(int j=0; j < input_2.get_shape_array()[1]; ++j)
+    for(size_t i=0; i < input_1.get_shape_array()[0]; ++i)
+        for(size_t j=0; j < input_2.get_shape_array()[1]; ++j)
         {
             result.push_back(0);
             
         }
     // multiplying matrix Input1, Input2 and storing inside the result
-    for(int i=0; i < input_1.get_shape_array()[0]; ++i)
-        for(int j=0; j < input_2.get_shape_array()[1]; ++j)
-            for(int k=0; k < input_1.get_shape_array()[1]; ++k)
+    for(size_t i=0; i < input_1.get_shape_array()[0]; ++i)
+        for(size_t j=0; j < input_2.get_shape_array()[1]; ++j)
+            for(size_t k=0; k < input_1.get_shape_array()[1]; ++k)
             {
                 result[i * input_2.get_shape_array()[1] + j] += input_1.at(i,k) * input_2.at(k,j);
             }
