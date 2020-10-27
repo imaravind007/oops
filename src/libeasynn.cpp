@@ -69,12 +69,7 @@ void add_kwargs_double(
     eval->add_kwargs_double(key, value);
 }
 
-void add_kwargs_ndarray(
-    evaluation *eval,
-    const char *key,
-    int dim,
-    size_t shape[],
-    double data[])
+void add_kwargs_ndarray(evaluation *eval, const char *key, int dim, size_t shape[], double data[])
 {
     printf("evaluation %p, key %s, value %p dim %d (",
         eval, key, data, dim);

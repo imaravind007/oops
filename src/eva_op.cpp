@@ -95,7 +95,7 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
     }
     vector<double>result;
 
-    // #nitializing the result of matrix result = 0
+    // #initializing the result of matrix result = 0
     for(int i=0; i < input_1.get_shape_array()[0]; ++i)
         for(int j=0; j < input_2.get_shape_array()[1]; ++j)
         {
