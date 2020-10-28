@@ -31,7 +31,7 @@ evaluation::evaluation(const std::vector<expression> &exprs)
 
 void evaluation::add_kwargs_double(const char *key, double value)
 {
-    kwargs_[key] = value;
+    kwargs_tensor[key] = tensor(value);
 }
 
 void evaluation::add_kwargs_ndarray(const char *key, int dim, size_t shape[], double data[])

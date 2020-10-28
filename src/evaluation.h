@@ -11,7 +11,6 @@ using namespace std;
 
 class evaluation
 {
-    map<string, double> kwargs_;
     map<string, tensor> kwargs_tensor;
 public:
     evaluation(const std::vector<expression> &exprs);
