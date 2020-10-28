@@ -84,18 +84,8 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
     tensor input_1 = variables.at(inputs_[0]);
     tensor input_2 = variables.at(inputs_[1]);
     vector<double>result;
-    // the condition to prevent the seg fault
-    // if (input_1.get_dim()== 0) 
-    // {
-    //     variables[expr_id_] = input_2;
-    //     return variables[expr_id_];
-    // }
-    // if(input_2.get_dim()==0)
-    // {
-    //     variables[expr_id_] = input_1;
-    //     return variables[expr_id_];
-    // }
 
+    // Value * Tensor
     if(input_1.get_dim()==0)
     {
        double input_x = input_1.item();
@@ -108,6 +98,7 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
     return variables[expr_id_];
         
     }
+    // Tensor* value
     else if(input_2.get_dim()==0){
         double input_x = input_2.item();
        for(int i =0; i< input_1.get_size(); ++i)
@@ -119,6 +110,7 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
     return variables[expr_id_];
     }
 
+    // Matrix *Matrix
     else
     {
 
