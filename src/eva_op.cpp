@@ -98,6 +98,7 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
     return variables[expr_id_];
         
     }
+
     // Tensor* value
     else if(input_2.get_dim()==0){
         double input_x = input_2.item();
@@ -136,3 +137,23 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
   
 }
 
+//Relu
+eval_relu::eval_relu(const expression &expr):eval_op(expr){}
+tensor eval_relu::eval(vars_type &variables, const kwargs_type &kwargs ){
+     tensor input_1 = variables.at(inputs_[0]);
+     std::vector<double> result;
+     for(int i =0; i < input_1.get_size();++i){
+        if(input_1.get_data_array()[i] < 0)
+        {
+            result[i] = 0;
+        }
+        else
+        {
+            result[i] = input_1.get_data_array()[i];
+        }
+        
+     }
+    variables[expr_id_] = tensor(input_1.get_dim(),input_1.get_shape_array(),&result[0]);
+    return variables[expr_id_];
+
+}
