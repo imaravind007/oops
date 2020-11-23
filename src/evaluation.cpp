@@ -32,9 +32,9 @@ evaluation::evaluation(const std::vector<expression> &exprs)
         else if (expr.get_op_type() == "Flatten"){
             ops_.push_back(std::make_shared<eval_flatten>(expr));
         }
-        // else if (expr.get_op_type() == "Input2d"){
-        //     ops_.push_back(std::make_shared<eval_Input2d>(expr));
-        // }
+        else if (expr.get_op_type() == "Input2d"){
+            ops_.push_back(std::make_shared<eval_Input2d>(expr));
+        }
         // else if (expr.get_op_type() == "Linear"){
         //     ops_.push_back(std::make_shared<eval_Linear>(expr));
         // }
