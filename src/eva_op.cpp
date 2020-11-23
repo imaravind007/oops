@@ -138,40 +138,40 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
 }
 
 //Relu
-// eval_relu::eval_relu(const expression &expr):eval_op(expr){}
-// tensor eval_relu::eval(vars_type &variables, const kwargs_type &kwargs ){
-//      tensor input_1 = variables.at(inputs_[0]);
-//      std::vector<double> result;
-//      for(int i =0; i < input_1.get_size();++i){
-//         if(input_1.get_data_array()[i] < 0)
-//         {
-//             result[i] = 0;
-//         }
-//         else
-//         {
-//             result[i] = input_1.get_data_array()[i];
-//         }
+eval_relu::eval_relu(const expression &expr):eval_op(expr){}
+tensor eval_relu::eval(vars_type &variables, const kwargs_type &kwargs ){
+     tensor input_1 = variables.at(inputs_[0]);
+     std::vector<double> result;
+     for(int i =0; i < input_1.get_size();++i){
+        if(input_1.get_data_array()[i] < 0)
+        {
+            result[i] = 0;
+        }
+        else
+        {
+            result[i] = input_1.get_data_array()[i];
+        }
         
-//      }
-//     variables[expr_id_] = tensor(input_1.get_dim(),input_1.get_shape_array(),&result[0]);
-//     return variables[expr_id_];
+     }
+    variables[expr_id_] = tensor(input_1.get_dim(),input_1.get_shape_array(),&result[0]);
+    return variables[expr_id_];
 
-// }
+}
 //Flatten
-// eval_flatten::eval_flatten(const expression &expr):eval_op(expr){}
-// tensor eval_flatten::eval(vars_type &variables, const kwargs_type &kwargs )
-// {
+eval_flatten::eval_flatten(const expression &expr):eval_op(expr){}
+tensor eval_flatten::eval(vars_type &variables, const kwargs_type &kwargs )
+{
 
-//     tensor input_1 = variables.at(inputs_[0]);
-//     size_t N = input_1.get_shape_array()[0];
-//     size_t C = input_1.get_shape_array()[1];
-//     size_t H = input_1.get_shape_array()[2];
-//     size_t W = input_1.get_shape_array()[3];
-//     size_t result_shape[2] = {N, C*H*W};
-//     variables[expr_id_] = tensor(2.0, &result_shape[0], input_1.get_data_array());
-//     return variables[expr_id_];
+    tensor input_1 = variables.at(inputs_[0]);
+    size_t N = input_1.get_shape_array()[0];
+    size_t C = input_1.get_shape_array()[1];
+    size_t H = input_1.get_shape_array()[2];
+    size_t W = input_1.get_shape_array()[3];
+    size_t result_shape[2] = {N, C*H*W};
+    variables[expr_id_] = tensor(2.0, &result_shape[0], input_1.get_data_array());
+    return variables[expr_id_];
 
-// }
+}
 
 //Input2d
 // eval_Input2d::eval_Input2d(const expression &expr):eval_op(expr){}
