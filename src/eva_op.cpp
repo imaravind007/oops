@@ -158,42 +158,42 @@ tensor eval_mul::eval(vars_type &variables, const kwargs_type &kwargs )
 
 // }
 //Flatten
-eval_flatten::eval_flatten(const expression &expr):eval_op(expr){}
-tensor eval_flatten::eval(vars_type &variables, const kwargs_type &kwargs )
-{
+// eval_flatten::eval_flatten(const expression &expr):eval_op(expr){}
+// tensor eval_flatten::eval(vars_type &variables, const kwargs_type &kwargs )
+// {
 
-    tensor input_1 = variables.at(inputs_[0]);
-    size_t N = input_1.get_shape_array()[0];
-    size_t C = input_1.get_shape_array()[1];
-    size_t H = input_1.get_shape_array()[2];
-    size_t W = input_1.get_shape_array()[3];
-    size_t result_shape[2] = {N, C*H*W};
-    variables[expr_id_] = tensor(2.0, &result_shape[0], input_1.get_data_array());
-    return variables[expr_id_];
+//     tensor input_1 = variables.at(inputs_[0]);
+//     size_t N = input_1.get_shape_array()[0];
+//     size_t C = input_1.get_shape_array()[1];
+//     size_t H = input_1.get_shape_array()[2];
+//     size_t W = input_1.get_shape_array()[3];
+//     size_t result_shape[2] = {N, C*H*W};
+//     variables[expr_id_] = tensor(2.0, &result_shape[0], input_1.get_data_array());
+//     return variables[expr_id_];
 
-}
+// }
 
-// Input2d
-eval_Input2d::eval_Input2d(const expression &expr):eval_op(expr){}
-tensor eval_Input2d::eval(vars_type &variables, const kwargs_type &kwargs )
-{
-    tensor input2d =  kwargs.at(op_name_);
-    size_t N = input2d.get_shape_array()[0];
-    size_t H = input2d.get_shape_array()[1];
-    size_t W = input2d.get_shape_array()[2];
-    size_t C = input2d.get_shape_array()[3];
-    vector<double>result(N*C*H*W,0);
-    for(size_t n=0; n < N; ++n)
-        for(size_t c=0; c < C; ++c)
-            for(size_t h = 0; h < H;++h)
-                for(size_t w=0; w < W; ++w)
-                {
-                    result[(n*C*H*W) + (c*H*W) + (h*W) + w]  = input2d.get_data_array()[(n*H*W*C)+(h*W*C)+(w*C)+c];
-                }
-size_t result_shape[4] = {N, C, H, W};
-variables[expr_id_] = tensor(4.0,&result_shape[0],&result[0]);
-return variables[expr_id_];
-}
+// // Input2d
+// eval_Input2d::eval_Input2d(const expression &expr):eval_op(expr){}
+// tensor eval_Input2d::eval(vars_type &variables, const kwargs_type &kwargs )
+// {
+//     tensor input2d =  kwargs.at(op_name_);
+//     size_t N = input2d.get_shape_array()[0];
+//     size_t H = input2d.get_shape_array()[1];
+//     size_t W = input2d.get_shape_array()[2];
+//     size_t C = input2d.get_shape_array()[3];
+//     vector<double>result(N*C*H*W,0);
+//     for(size_t n=0; n < N; ++n)
+//         for(size_t c=0; c < C; ++c)
+//             for(size_t h = 0; h < H;++h)
+//                 for(size_t w=0; w < W; ++w)
+//                 {
+//                     result[(n*C*H*W) + (c*H*W) + (h*W) + w]  = input2d.get_data_array()[(n*H*W*C)+(h*W*C)+(w*C)+c];
+//                 }
+// size_t result_shape[4] = {N, C, H, W};
+// variables[expr_id_] = tensor(4.0,&result_shape[0],&result[0]);
+// return variables[expr_id_];
+// }
 
 
 //Linear

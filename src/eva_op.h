@@ -62,16 +62,16 @@ class eval_mul: public eval_op{
 //         eval_relu(const expression &expr);
 //         tensor eval(vars_type &variables, const kwargs_type &kwargs)override;
 // };
-class eval_flatten: public eval_op{
-    public:
-        eval_flatten(const expression &expr);
-        tensor eval(vars_type &variables, const kwargs_type &kwargs)override;
-};
-class eval_Input2d: public eval_op{
-    public:
-        eval_Input2d(const expression &expr);
-        tensor eval(vars_type &variables, const kwargs_type &kwargs)override;
-};
+// class eval_flatten: public eval_op{
+//     public:
+//         eval_flatten(const expression &expr);
+//         tensor eval(vars_type &variables, const kwargs_type &kwargs)override;
+// };
+// class eval_Input2d: public eval_op{
+//     public:
+//         eval_Input2d(const expression &expr);
+//         tensor eval(vars_type &variables, const kwargs_type &kwargs)override;
+// };
 // class eval_Linear: public eval_op{
 //     tensor weight;
 //     tensor bias;
