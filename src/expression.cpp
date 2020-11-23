@@ -31,7 +31,6 @@ std::vector<int> expression::get_inputs()const
 {
     return inputs_;
 }
-
 tensor expression::get_op_param(const char *key) const
 {
     auto it = op_params_tensor.find(key);

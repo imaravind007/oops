@@ -48,6 +48,14 @@ double tensor::at(size_t i, size_t j) const{
     return data_[i*shape_[1]+j];
 }
 
+double tensor::at(size_t i, size_t j, size_t k, size_t l)const
+{
+    assert(get_dim() == 4);
+    assert((i < shape_[0]) && (j < shape_[1]) && (k < shape_[2]) && (l < shape_[3]) );
+    return data_[ (i*shape_[1]*shape_[2]*shape_[3]) + (j*shape_[2]*shape_[3]) + (k*shape_[3]) + l ];
+
+} 
+
 size_t *tensor::get_shape_array(){
     return shape_.empty()? nullptr: &shape_[0];
 }

@@ -8,15 +8,16 @@
 */
 evaluation::evaluation(const std::vector<expression> &exprs)
 :result_(0){
-        for (auto &expr: exprs){
+        for (auto &expr: exprs)
+    {
         if (expr.get_op_type() == "Input"){
             ops_.push_back(std::make_shared<eval_input>(expr));
             
         }
-        else if (expr.get_op_type()== "Const") {
+        else if (expr.get_op_type()== "Const"){
             ops_.push_back(std::make_shared<eval_const>(expr));
         }
-        else if (expr.get_op_type() == "Add") {
+        else if (expr.get_op_type() == "Add"){
             ops_.push_back(std::make_shared<eval_add>(expr));
         }
         else if (expr.get_op_type() == "Sub"){
@@ -25,7 +26,18 @@ evaluation::evaluation(const std::vector<expression> &exprs)
         else if (expr.get_op_type() == "Mul"){
             ops_.push_back(std::make_shared<eval_mul>(expr));
         }
-          //  }
+        else if (expr.get_op_type() == "ReLu"){
+            ops_.push_back(std::make_shared<eval_relu>(expr));
+        }
+        else if (expr.get_op_type() == "Flatten"){
+            ops_.push_back(std::make_shared<eval_flatten>(expr));
+        }
+        else if (expr.get_op_type() == "Input2d"){
+            ops_.push_back(std::make_shared<eval_Input2d>(expr));
+        }
+        else if (expr.get_op_type() == "Linear"){
+            ops_.push_back(std::make_shared<eval_Linear>(expr));
+        }
     }
 }
 

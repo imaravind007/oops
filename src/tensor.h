@@ -18,6 +18,7 @@ public:
 
     double at(size_t i) const;
     double at(size_t i, size_t j) const;
+    double at(size_t i, size_t j, size_t k, size_t l)const;
 
     size_t *get_shape_array();
     double *get_data_array();
