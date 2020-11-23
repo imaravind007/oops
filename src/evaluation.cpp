@@ -26,18 +26,24 @@ evaluation::evaluation(const std::vector<expression> &exprs)
         else if (expr.get_op_type() == "Mul"){
             ops_.push_back(std::make_shared<eval_mul>(expr));
         }
-        else if (expr.get_op_type() == "ReLu"){
-            ops_.push_back(std::make_shared<eval_relu>(expr));
-        }
-        else if (expr.get_op_type() == "Flatten"){
-            ops_.push_back(std::make_shared<eval_flatten>(expr));
-        }
-        else if (expr.get_op_type() == "Input2d"){
-            ops_.push_back(std::make_shared<eval_Input2d>(expr));
-        }
-        else if (expr.get_op_type() == "Linear"){
-            ops_.push_back(std::make_shared<eval_Linear>(expr));
-        }
+        // else if (expr.get_op_type() == "ReLu"){
+        //     ops_.push_back(std::make_shared<eval_relu>(expr));
+        // }
+        // else if (expr.get_op_type() == "Flatten"){
+        //     ops_.push_back(std::make_shared<eval_flatten>(expr));
+        // }
+        // else if (expr.get_op_type() == "Input2d"){
+        //     ops_.push_back(std::make_shared<eval_Input2d>(expr));
+        // }
+        // else if (expr.get_op_type() == "Linear"){
+        //     ops_.push_back(std::make_shared<eval_Linear>(expr));
+        // }
+        // else if (expr.get_op_type() == "Maxpool2d"){
+        //     ops_.push_back(std::make_shared<eval_Maxpool2d>(expr));
+        // }
+        // else if (expr.get_op_type() == "Convol2d"){
+        //     ops_.push_back(std::make_shared<eval_Convol2d>(expr));
+        // }
     }
 }
 
