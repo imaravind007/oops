@@ -223,6 +223,7 @@ tensor eval_Linear::eval(vars_type &variables, const kwargs_type &kwargs )
     variables[expr_id_] = tensor(2, result_shape, &result2[0]);
     return variables[expr_id_];
 }
+//initialization hello
 
 
 
