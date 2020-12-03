@@ -90,6 +90,10 @@ validation_images = mnist_train["images"][:1000]
 validation_labels = mnist_train["labels"][:1000]
 training_images = mnist_train["images"][1000:]
 training_labels = mnist_train["labels"][1000:]
+print(validation_images.shape)
+print(validation_labels.shape)
+print(training_images.shape)
+print(training_labels.shape)
 
 bound = 0.001
 epsilon =0.00001

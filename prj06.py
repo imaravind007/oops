@@ -178,9 +178,6 @@ def backprop(labels, theta, z, h, g, ry, cy, y, rx, cx, x):
         # cross entropy and softmax
         #   compute partial J to partial z[i]
         #   scale by 1/N for averaging
-        expz = np.exp(z[i]-max(z[i]))
-        p_z = expz/sum(expz)/N
-        p_z[labels[i]] -= 1/N
 
         # z = Linear_f(h)
         #   compute partial J to partial h[i]
@@ -224,8 +221,7 @@ def backprop(labels, theta, z, h, g, ry, cy, y, rx, cx, x):
     # p_c1_b = ...
 
     # ToDo: modify code below as needed
-    return None
-    # return (p_c1_W, p_c1_b, p_c2_W, p_c2_b, p_f_W, p_f_b)
+    return(p_c1_W, p_c1_b, p_c2_W, p_c2_b, p_f_W, p_f_b)
 
 
 # apply SGD to update theta by nabla_J and the learning rate epsilon
@@ -237,7 +233,7 @@ def update_theta(theta, nabla_J, epsilon):
 
 
 # ToDo: set numpy random seed to the last 8 digits of your CWID
-np.random.seed(12345678)
+np.random.seed(20466773)
 
 # load training data and split them for validation/training
 mnist_train = np.load("mnist_train.npz")
